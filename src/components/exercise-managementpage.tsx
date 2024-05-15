@@ -257,7 +257,7 @@ export function ExerciseManagementPage({
                 <div>
                     <h5 style={{marginLeft: "4px", marginBottom: "-20px"}}>Sort By:</h5>
                     <br/>
-                    <div id="boxes" style={{display: "inline-flex", padding: "4px"}}>
+                    <div className="work" >
                         <form id= "tags">
                             <div style={{fontSize:"16px", display:"inline"}}>Tags:</div>
                             <br></br>
@@ -331,31 +331,33 @@ export function ExerciseManagementPage({
                             )}
                     </div>
                     
-                {/* </span> */}
-                {exList.map((exercise) => {
-                        if (exercise !== undefined)
-                            return (
-                                <Exercise
-                                    key={exercise.exIndex}
-                                    teacherMode={true}
-                                    ExData={exercise}
-                                    allExData={allExData}
-                                    setAllExData={setAllExData}
-                                    exIndex={exercise.exIndex}
-                                    setNewExercise={undefined}
-                                    handleSelectExercise={handleSelectExercise}
-                                    isSelected={selectedIndexes.includes(exercise.exIndex)}
-                                    fetch={undefined}
-                                />
-                            )
-                        else return (<div key={Math.random()} />);
-                    })}
-                {exList.length === 0 ? <div>No exercises found! Maybe try adding one?</div> : <></>}
-
+                    
+                        {exList.map((exercise) => {
+                            if (exercise !== undefined)
+                                return (
+                                <div className="work" >
+                                    <Exercise
+                                        key={exercise.exIndex}
+                                        teacherMode={true}
+                                        ExData={exercise}
+                                        allExData={allExData}
+                                        setAllExData={setAllExData}
+                                        exIndex={exercise.exIndex}
+                                        setNewExercise={undefined}
+                                        handleSelectExercise={handleSelectExercise}
+                                        isSelected={selectedIndexes.includes(exercise.exIndex)}
+                                        fetch={undefined}
+                                    />
+                                </div>
+                                )
+                            else return (<div key={Math.random()} />);
+                        })}
+                        {exList.length === 0 ? <div>No exercises found! Maybe try adding one?</div> : <></>}
+                    
                 </div> 
-                : <div>
+                : <div >
                    <Button style={{ color: "white", borderColor: "blue", display: "flex" }} onClick={createExercise}>+ New Exercise</Button>
-                    {newExercise !== undefined ? <div>
+                    {newExercise !== undefined ? <div className="work">
                         <Exercise
                             key={newExercise.exIndex}
                             teacherMode={true}
@@ -371,9 +373,7 @@ export function ExerciseManagementPage({
 
                     </div> : <></>}
                 </div>}
-            
-            
-            <br></br>
+
             {/* <Button onClick={fetch} variant="success">Sync with Database</Button> */}
         </div>
     );

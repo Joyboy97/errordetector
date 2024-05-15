@@ -95,7 +95,8 @@ function App() {
           </Navbar>
           
         </header>
-        
+        <div className='container'>
+        <div  style={{height:'400px',overflowY: "scroll",margin: "10px"}}>
           <Routes>
               <Route path="/" element={<HomePage/>}/>
             </Routes>
@@ -125,6 +126,19 @@ function App() {
             <Routes>
               <Route path="/help" element={<HelpPage authorized={authorized} setAuthorized={setAuthorized}/>} />
             </Routes>
+        </div>
+        </div>
+      <div className="copyright">
+        <p>
+        This project was led by Phil Duker with the help of the following wonderful students:
+        <br />
+            <div className='names'>
+              Alex Daley, Weldin Dunn, Benjamin McMonagle, Sean O’Sullivan, Sonika Sharma, Colin Stetler,
+              Victor Umoren-Udo, and Lillian Woulfe
+            </div>
+          
+        </p>
+      </div>
 
       </div>
     </Router>

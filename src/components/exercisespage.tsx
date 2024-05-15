@@ -257,17 +257,19 @@ export function ExercisesPage({
             <h5 style={{fontStyle: "italic"}}>Sort by tags, difficulty, and voices, then click an exercise to get started.</h5>
             <div style={{float:'left', width: "30%"}}>
                 <span>
-                    <div id="boxes" style={{display: "inline-flex", padding: "4px"}}>
+                    <div className='work'>
                         <form id= "tags">
                             <div style={{fontSize:"16px", display:"inline"}}>Tags:</div>
-                            <br></br>
-                            <input type="checkbox" name="tags" value="Pitch" checked={tags.includes("Pitch")} onChange={tagsChange}style={{margin: "4px"}}/>Pitch
-                            <input type="checkbox" name="tags" value="Intonation" checked={tags.includes("Intonation")} onChange={tagsChange} style={{marginLeft: "12px"}}/> Intonation
+                   
+                            <div>
+                                Pitch<input type="checkbox" name="tags" value="Pitch" checked={tags.includes("Pitch")} onChange={tagsChange}style={{margin: "4px"}}/>
+                                Intonation <input type="checkbox" name="tags" value="Intonation" checked={tags.includes("Intonation")} onChange={tagsChange} style={{marginLeft: "12px"}}/> 
+                            </div>
                             {/* <input type="checkbox" name="tags" value="Rhythm" checked={tags.includes("Rhythm")} onChange={tagsChange}/>Rhythm */}
                         </form>
                         <form id="transpos">
-                            <div style={{fontSize:"16px", display:"inline"}}>Transposing Instruments:</div>
-                            <br></br>
+                            
+                            Transposing Instruments:
                             <input type="checkbox" name="transpos" value="buh" checked={transpos} onChange={transposChange} style={{marginLeft: "5.3vw"}}/>
                         </form>
                     </div>
@@ -349,29 +351,28 @@ export function ExercisesPage({
                 {exList.length === 0 ? <div>No exercises with those criteria found!</div> : <></>}
             </div>
             <div style={{float:'right',width:'70%'}}>
-                {selExercise !== undefined ? <div>
-                    <Exercise 
-                        key={selExercise.exIndex} 
-                        teacherMode={false} 
-                        ExData={selExercise} 
-                        allExData={allExData} 
-                        setAllExData={setAllExData} 
-                        exIndex={selExercise.exIndex} 
-                        setNewExercise={undefined} 
-                        handleSelectExercise={undefined} 
-                        isSelected={undefined}
-                        fetch={undefined}
-                    />
-                    
-                </div> : <></>}
-            <div style={{display:"flex", justifyContent: "center"}}>
-                <button style={{width: "5%"}}id="back-btn" hidden={true} disabled={false} onClick={prevEx}>Back</button>
-                <button style={{width: "5%"}} id="next-btn" hidden={true} disabled={false} onClick={nextEx}>Next</button>
-            </div>
-                
+                    {selExercise !== undefined ? <div>
+                        <Exercise 
+                            key={selExercise.exIndex} 
+                            teacherMode={false} 
+                            ExData={selExercise} 
+                            allExData={allExData} 
+                            setAllExData={setAllExData} 
+                            exIndex={selExercise.exIndex} 
+                            setNewExercise={undefined} 
+                            handleSelectExercise={undefined} 
+                            isSelected={undefined}
+                            fetch={undefined}
+                        />
+                        
+                    </div> : <></>}
+                <div style={{display:"flex", justifyContent: "center"}}>
+                    <button style={{width: "5%"}}id="back-btn" hidden={true} disabled={false} onClick={prevEx}>Back</button>
+                    <button style={{width: "5%"}} id="next-btn" hidden={true} disabled={false} onClick={nextEx}>Next</button>
+                </div>
             </div>
             
-            <br></br>
+
 
 
             
